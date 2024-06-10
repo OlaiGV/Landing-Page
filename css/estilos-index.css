@@ -1,0 +1,296 @@
+@import url("./comun.css");
+
+/* Contenedor de la página y todos los elementos. Contiene imagen de fondo */
+.fondo {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+/* Contenedor para el fondo de la landing page */
+.imagen-fondo {
+  background-image: url(../imagenes/fondo-laptop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  transform: translateX(0);
+  transition: transform 0.9s ease-in-out;
+  height: 100%;
+  width: 100%;
+}
+
+/* Contenedor para el menú lateral */
+.opciones {
+  height: 100vh;
+  width: 20vw;
+  position: absolute;
+  /* Posiciona el el borde izquierdo del elemento estará posicionado al 100% del ancho del contenedor padre*/
+  left: 100%;
+  /* Posiciona  el borde derecho del elemento estará posicionado a 0 unidades de distancia desde el borde derecho del contenedor padre */
+  right: 0;
+  background-color: var(--fondo-marron-oscuro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  transition: left 0.9s ease-in-out;
+}
+
+.mostrar-menu-lateral {
+  position: relative;
+  /* Meter el contenedor dentro del DOM*/
+  left: 80%;
+  z-index: 1;
+  padding: 15px;
+  transition: z-index 0.9 ease-in-out;
+}
+
+/* Opciones del menú lateral */
+.grupo-opciones {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  cursor: pointer;
+}
+
+.grupo-opciones > *,
+.idiomas > * {
+  color: var(--color-letra-clara);
+  font-size: var(--size-medio);
+  font-weight: bold;
+  font-style: none;
+  padding: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.idiomas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+/* Contenedor para el contenido situado en la cabecera de la página */
+.contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  gap: 2.5em;
+  transition: margin-left 0.9s ease-in-out;
+}
+
+.cabecera {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+}
+
+.logo,
+.boton-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  cursor: pointer;
+}
+
+.boton-menu {
+  margin-right: 10px;
+}
+
+.logo > *,
+.boton-menu > * {
+  color: var(--color-letra-clara);
+  font-size: var(--size-grande);
+  font-weight: bold;
+  font-style: none;
+}
+
+.logo > p {
+  border-bottom: 2px solid var(--color-letra-clara);
+  transform: rotate(-5deg);
+  padding: 5px;
+}
+
+.logo-menu > span,
+.logo {
+  padding: 0.8em;
+}
+
+/* Contenedor en el que están el titulo de la web y el eslogan */
+.eslogan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-self: center;
+  height: 70vh;
+  position: relative;
+  transform: translateX(0);
+  transition: transform 0.9s ease-in-out;
+  font-family: var(--fuente-logo);
+}
+
+/* Efecto de máquina de escribir sobre el h1 que contiene el nombre de la aplicación*/
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(22, end) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+/* Efecto de máquina de escribir */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 13ch; /* Número de caracteres del texto */
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+.frases {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+}
+
+.frase {
+  color: var(--color-letra-clara);
+  font-size: var(--size-grande);
+  font-family: var(--fuente-eslogan);
+  font-style: italic;
+  /* font-weight: bold; */
+  opacity: .8;
+}
+
+/* Contenedor donde estarán las redes sociales */
+.redes {
+  gap: 0.5rem;
+  position: absolute;
+  height: 10vh;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: center;
+  align-self: center;
+  position: relative;
+  transform: translateX(0);
+  transition: transform 0.9s ease-in-out;
+}
+
+.mostrar {
+  opacity: 1;
+  display: flex;
+  height: 10vh;
+}
+
+.velo-principal {
+  background-color: aliceblue;
+  width: 80vw;
+  height: 100vh;
+  position: absolute;
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 0.5s ease-in-out, height 0.9s ease-in-out;
+  pointer-events: none;
+}
+
+.mostrar-velo {
+  opacity: 0.7;
+  height: 100vh;
+  pointer-events: auto;
+}
+
+/* Mover contenedor al desplegar menu laterañ */
+.mover-contenedor {
+  transform: translateX(-20vw);
+}
+
+.cerrar-menu {
+  display: block;
+  border: 0;
+  font-size: 1.25rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .eslogan .frases {
+    font-size: var(--size-medio);
+    margin-right: 10px;
+    margin-left: 40px;
+  }
+
+  .eslogan {
+    font-size: var(--size-normal);
+    align-items: center;
+  }
+  .opciones {
+    width: 40vw;
+  }
+
+  .velo-principal {
+    width: 60vw;
+  }
+
+  .mostrar-menu-lateral {
+    left: 60%;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .eslogan .frases {
+    font-size: var(--size-normal);
+    margin-right: 10px;
+    margin-left: 40px;
+  }
+
+  .eslogan {
+    font-size: var(--size-normal);
+    align-items: center;
+  }
+
+  .opciones {
+    width: 40vw;
+  }
+
+  .velo-principal {
+    width: 60vw;
+  }
+
+  .mostrar-menu-lateral {
+    left: 60%;
+  }
+}
